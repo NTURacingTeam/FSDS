@@ -71,6 +71,8 @@ if [ ! -d "AirLib/deps/eigen3" ]; then
     unzip eigen3.zip -d temp_eigen
     mkdir -p AirLib/deps/eigen3
     mv temp_eigen/eigen*/Eigen AirLib/deps/eigen3
+    cp RegexUtils AirLib/deps/eigen3/Eigen
+    sed -e "/install(/,/)/d" -i AirLib/deps/eigen3/Eigen/CMakeLists.txt
     rm -rf temp_eigen
     rm eigen3.zip
 else
